@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            demo-app
+            project1-Kubernetes-Prometheus+Grafana/demo-app
           sparse-checkout-cone-mode: false
 
       - name: Set up Docker Buildx
@@ -27,6 +27,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./demo-app
+          context: .project1-Kubernetes-Prometheus+Grafana/demo-app
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/demo-app:latest
