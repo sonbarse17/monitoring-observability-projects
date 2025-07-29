@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: yourdockerhub/demo-app:latest
+          image: sonbarse17/demo-app:latest
           ports:
             - containerPort: 3000
 ---
