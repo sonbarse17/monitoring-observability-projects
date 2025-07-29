@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: demo-app-monitor
+  namespace: monitoring   # ⚠️ Same namespace jahan Prometheus hai
+  labels:
+    release: prometheus   # ⚠️ Prometheus ka Helm label — zaroori hai
+spec:
+  selector:
+    matchLabels:
+      app: demo-app        # Ye service ke label se match karega
+  namespaceSelector:
+    matchNames:
+      - default            # App ka namespace
+  endpoints:
+    - port: http           # Service ka port name
+      path: /metrics       # Tere Node.js app ka /metrics endpoint
+      interval: 15s        # 15 second me scrape karo
