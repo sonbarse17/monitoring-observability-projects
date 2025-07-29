@@ -27,6 +27,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .project1-Kubernetes-Prometheus+Grafana/demo-app
+          context: ./project1-Kubernetes-Prometheus+Grafana/demo-app
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/demo-app:latest
